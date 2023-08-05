@@ -8,7 +8,7 @@ import 'package:efunding/utils/dimsensions.dart';
 import 'package:efunding/utils/size.dart';
 import 'package:efunding/utils/strings.dart';
 import 'package:efunding/views/screens/drawer_screen.dart';
-import 'package:efunding/widgets/others/chartflow_Dashboard_widget.dart';
+import 'package:efunding/widgets/others/chartflow_dashboard_widget.dart';
 import 'package:efunding/widgets/others/slider_dashboard_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -66,8 +66,7 @@ class DashboardScreen extends StatelessWidget {
             }));
   }
 
-
-  _donationReportWidget(BuildContext context){
+  _donationReportWidget(BuildContext context) {
     return Column(
       children: [
         _donationReportTitleWidget(context),
@@ -94,8 +93,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-
-  _withdrawReportWidget(BuildContext context){
+  _withdrawReportWidget(BuildContext context) {
     return Column(
       children: [
         _withdrawReportTitleWidget(context),
@@ -103,7 +101,6 @@ class DashboardScreen extends StatelessWidget {
       ],
     );
   }
-
 
   _withdrawReportTitleWidget(BuildContext context) {
     return Container(
