@@ -1,41 +1,55 @@
+import 'package:afofa/ui/screens/auth/login_screen.dart';
+import 'package:afofa/ui/screens/auth/verify_email_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:efunding/routes/routes.dart';
-import 'package:efunding/utils/strings.dart';
 
-void main() async {
-  await GetStorage.init(); // initializing getStorage
-  runApp(const MyApp());
+import 'routes/routes.dart';
+import 'theme/app_theme.dart';
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(414, 896),
-      builder: (_, child) => GetMaterialApp(
-        builder: (context, widget) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-            child: widget!,
-          );
-        },
-        title: Strings.appName,
+      designSize: Size(414, 896),
+      builder: (context, child) => MaterialApp(
+        title: 'AFOFA',
+        theme: AppTheme(context).initTheme(),
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          textTheme: GoogleFonts.robotoTextTheme(
-            Theme.of(context).textTheme,
-          ),
-        ),
-        navigatorKey: Get.key,
-        initialRoute: Routes.splashScreen,
-        getPages: Routes.list,
+        initialRoute: RouteGenerator.splash,
+        onGenerateRoute: RouteGenerator.generateRoute,
+      ),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.hasData) {
+            return const VerifyEmailScreen();
+          } else {
+            return const LoginScreen();
+          }
+        },
       ),
     );
   }
