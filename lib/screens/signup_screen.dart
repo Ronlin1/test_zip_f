@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/components/already_have_an_account_check.dart';
-import 'package:flutter_auth/components/or_divider.dart';
-import 'package:flutter_auth/components/rounded_button.dart';
-import 'package:flutter_auth/components/rounded_input_field.dart';
-import 'package:flutter_auth/components/rounded_password_field.dart';
-import 'package:flutter_auth/components/social_icon.dart';
-import 'package:flutter_auth/screens/login_screen.dart';
-import 'package:flutter_auth/utils/constants.dart';
+import 'package:charify/components/already_have_an_account_check.dart';
+import 'package:charify/components/or_divider.dart';
+import 'package:charify/components/rounded_button.dart';
+import 'package:charify/components/rounded_input_field.dart';
+import 'package:charify/components/rounded_password_field.dart';
+import 'package:charify/components/social_icon.dart';
+import 'package:charify/screens/login_screen.dart';
+import 'package:charify/utils/constants.dart';
 import 'package:flutter_svg/svg.dart';
 class SignUpScreen extends StatefulWidget {
   @override

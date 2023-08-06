@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/components/text_field_container.dart';
-import 'package:flutter_auth/utils/constants.dart';
+import 'package:charify/components/text_field_container.dart';
+import 'package:charify/utils/constants.dart';
 
 class RoundedPasswordFiled extends StatelessWidget {
   final ValueChanged<String> onChanged;

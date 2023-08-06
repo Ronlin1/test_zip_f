@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/screens/welcome_screen.dart';
-import 'package:flutter_auth/utils/constants.dart';
+import 'package:charify/screens/welcome_screen.dart';
+import 'package:charify/utils/constants.dart';
 
 // Charify
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Auth',
+      title: 'charify',
       theme: ThemeData(
           primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
       home: WelcomeScreen(),

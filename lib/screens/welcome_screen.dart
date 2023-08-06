@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/components/rounded_button.dart';
-import 'package:flutter_auth/utils/constants.dart';
+import 'package:charify/components/rounded_button.dart';
+import 'package:charify/utils/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'login_screen.dart';
