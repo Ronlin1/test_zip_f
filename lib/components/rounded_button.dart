@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final VoidCallback press; // Change the type to VoidCallback
   final Color color;
   final Color textColor;
 
-  RoundedButton({
-    Key key,
-    this.text,
-    this.press,
-    this.color,
-    this.textColor,
+  const RoundedButton({
+    Key? key,
+    required this.text,
+    required this.press,
+    required this.color,
+    required this.textColor,
   }) : super(key: key);
 
   @override

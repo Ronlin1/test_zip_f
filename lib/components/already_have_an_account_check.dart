@@ -3,9 +3,13 @@ import 'package:charify/utils/constants.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
-  final Function press;
+  final VoidCallback press; // Change the type to VoidCallback
 
-  const AlreadyHaveAnAccountCheck({Key key,this.login, this.press}) :super(key: key);
+  const AlreadyHaveAnAccountCheck({
+    Key? key,
+    required this.login,
+    required this.press,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +18,13 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
       children: <Widget>[
         Text(
           login ? "Don't have an Account ? " : "Already have an Account ? ",
-          style: TextStyle(color: kPrimaryColor,fontSize: 14.0),
+          style: TextStyle(color: kPrimaryColor, fontSize: 14.0),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
             login ? "Sign Up" : "Sign In",
-            style: TextStyle(color: kPrimaryColor,
-            fontWeight: FontWeight.bold),
+            style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold),
           ),
         )
       ],
