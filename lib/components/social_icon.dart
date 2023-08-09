@@ -4,9 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialIcon extends StatelessWidget {
   final String iconSrc;
-  final Function press;
+  final VoidCallback press; // Change the type to VoidCallback
 
-  const SocialIcon({Key key,this.iconSrc, this.press}):super(key:key);
+  const SocialIcon({Key? key, required this.iconSrc, required this.press})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,9 @@ class SocialIcon extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
-            color: kPrimaryLightColor
+            color: kPrimaryLightColor,
           ),
-          shape: BoxShape.circle
+          shape: BoxShape.circle,
         ),
         child: SvgPicture.asset(
           iconSrc,
@@ -30,5 +31,4 @@ class SocialIcon extends StatelessWidget {
       ),
     );
   }
-
 }

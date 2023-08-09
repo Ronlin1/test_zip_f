@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:charify/components/rounded_button.dart';
 import 'package:charify/utils/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'login_screen.dart';
+import 'signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -63,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                     press: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        // return SignUpScreen();
+                        return SignUpScreen();
                       }));
                     },
                   )

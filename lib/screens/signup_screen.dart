@@ -8,6 +8,10 @@ import 'package:charify/components/social_icon.dart';
 import 'package:charify/screens/login_screen.dart';
 import 'package:charify/utils/constants.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:charify/services/auth_service.dart';
+import 'package:charify/screens/campaigns_screen.dart'; // Import the CampaignsScreen class
+
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -45,37 +49,52 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25.0,
-                        foreground: Paint()..shader = linearGradient
-                    ),
+                        foreground: Paint()..shader = linearGradient),
                   ),
                   SizedBox(height: 10),
-                  SvgPicture.asset("assets/images/signup.svg",
-                    height: size.height * 0.25,),
+                  SvgPicture.asset(
+                    "assets/images/signup.svg",
+                    height: size.height * 0.25,
+                  ),
                   SizedBox(height: 10),
                   RoundedInputField(
                     hintText: "Your Email",
                     onChanged: (value) {},
                   ),
-                  RoundedPasswordFiled(
+                  RoundedPasswordField(
                     onChanged: (value) {},
                   ),
                   RoundedButton(
                     text: "SIGN UP",
                     color: kPrimaryColor,
                     textColor: Colors.white,
-                    press: (){},
+                    press: () async {
+                      // Replace with actual email and password from input fields
+                      String email = "user@example.com";
+                      String password = "password";
+
+                      // Call the authService to register
+                      bool registrationSuccessful =
+                          await AuthService.signUp(email, password);
+
+                      if (registrationSuccessful) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CampaignsScreen()),
+                        );
+                      } else {
+                        // Handle registration failure (show an error message, etc.)
+                      }
+                    },
                   ),
                   SizedBox(height: size.height * 0.03),
                   AlreadyHaveAnAccountCheck(
-                    press: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context){
-                                return LoginScreen();
-                              }
-                          )
-                      );
+                    press: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return LoginScreen();
+                      }));
                     },
                     login: false,
                   ),
@@ -85,15 +104,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: <Widget>[
                       SocialIcon(
                         iconSrc: "assets/icons/facebook.svg",
-                        press: (){},
+                        press: () {},
                       ),
                       SocialIcon(
                         iconSrc: "assets/icons/twitter.svg",
-                        press: (){},
+                        press: () {},
                       ),
                       SocialIcon(
                         iconSrc: "assets/icons/google-plus.svg",
-                        press: (){},
+                        press: () {},
                       ),
                     ],
                   )
