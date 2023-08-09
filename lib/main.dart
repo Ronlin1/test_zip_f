@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:charify/screens/welcome_screen.dart';
-import 'package:charify/utils/constants.dart';
 
-// Charify
+import 'components/screens/exportsScreens.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(FlashChat());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-
+class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'charify',
+      initialRoute: "/",
+      routes: {
+        "/": (context) => InitalScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        HomePage.id: (context) => HomePage(),
+        Education.id: (context) => Education(),
+        SeniorPage.id: (context) => SeniorPage(),
+        Article.id: (context) => Article(),
+        Ehelp.id: (context) => Ehelp(),
+        Clothes.id: (context) => Clothes(),
+        Health.id: (context) => Health(),
+      },
       theme: ThemeData(
-          primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
-      home: WelcomeScreen(),
+        primaryColor: Color(0xFF5B86E5),
+        accentColor: Color(0xff99d8d0),
+      ),
     );
   }
 }
