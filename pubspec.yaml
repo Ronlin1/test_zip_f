@@ -24,8 +24,15 @@ dependencies:
   flutter:
     sdk: flutter
   cloud_firestore:
-  firebase_core:
-  firebase_auth:
+  google_maps_flutter: 
+  firebase_core: 
+  firebase_auth: 
+  modal_progress_hud: 
+  razorpay_flutter:
+  fluttertoast: 
+  flutter_icons: 
+  google_fonts: 
+  animations: 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -36,9 +43,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+flutter_icon:
+  android: 'launcher_icon'
+  image_path: 'images/mylogo1.png'
+
 
 # The following section is specific to Flutter.
 flutter:
@@ -52,6 +65,11 @@ flutter:
   assets:
    - assets/images/
    - assets/icons/
+
+  fonts:
+    - family: Dancing Script
+      fonts:
+        - asset: fonts/DancingScript-Bold.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

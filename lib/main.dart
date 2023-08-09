@@ -28,6 +28,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/splash': (context) => SplashScreen(), // Define the SplashScreen route
         '/': (context) => WelcomeScreen(), // Define the WelcomeScreen route
+        '/home': (context) => HomePage(),
+        '/article': (context) => ArticleScreen(),
         '/login': (context) => LoginScreen(), // Define the LoginScreen route
         '/signup': (context) => SignUpScreen(), // Define the SignUpScreen route
         '/campaigns': (context) =>
